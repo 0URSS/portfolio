@@ -417,11 +417,20 @@ h2 {
   .hero {
     flex-direction: column;
     text-align: center;
-    padding: 140px 6% 80px;
+    padding: 130px 6% 100px;
+    gap: 50px;
   }
 
   .hero-content {
     max-width: 100%;
+    padding: 32px 28px;
+  }
+
+  .hero-card {
+    min-width: auto;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
   }
 
   .hero-buttons {
@@ -430,15 +439,39 @@ h2 {
 
   .navbar {
     padding: 12px 20px;
-    gap: 20px;
+    gap: 16px;
     top: 12px;
+    width: 90%;
+    max-width: 420px;
+  }
+
+  .nav-links {
+    gap: 18px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .about,
+  .skills,
+  .contact {
+    padding: 80px 6%;
+  }
+
+  .skills {
+    margin: 0 4%;
   }
 
   .contact-box {
     padding: 60px 24px;
   }
 
-  .skills {
-    margin: 0 2%;
+  .fab {
+    width: 52px;
+    height: 52px;
+    font-size: 20px;
+    bottom: 24px;
+    right: 24px;
   }
 }
