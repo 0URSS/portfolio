@@ -85,7 +85,7 @@ body {
 }
 
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -188,11 +188,38 @@ body {
   background: var(--white);
   border-radius: var(--radius);
   padding: 32px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
   animation: float 4s ease-in-out infinite;
   flex-shrink: 0;
   z-index: 1;
   position: relative;
+  min-width: 240px;
+}
+
+.card-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.card-icon {
+  font-size: 42px;
+  flex-shrink: 0;
+}
+
+.card-text span {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--black);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.card-text p {
+  font-size: 15px;
+  color: var(--gray);
+  margin: 0;
+  font-weight: 500;
 }
 
 /* СЕКЦИИ */
@@ -231,7 +258,9 @@ h2 {
   border-radius: var(--radius);
   padding: 36px 28px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .about-card:hover {
@@ -357,8 +386,13 @@ h2 {
 
 /* АНИМАЦИИ */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-16px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
 }
 
 @keyframes fadeDown {
@@ -373,7 +407,9 @@ h2 {
 }
 
 @keyframes growBar {
-  from { width: 0; }
+  from {
+    width: 0;
+  }
 }
 
 /* АДАПТИВ */
