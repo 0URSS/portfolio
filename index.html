@@ -5,55 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Олег — Веб-разработчик</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!-- ШАПКА -->
-    <header>
-      <nav>
-        <div class="logo">Олег</div>
-        <ul>
-          <li><a href="#about">Обо мне</a></li>
-          <li><a href="#skills">Навыки</a></li>
-          <li><a href="#contact">Контакты</a></li>
-        </ul>
-      </nav>
-    </header>
+    <!-- НАВИГАЦИЯ -->
+    <nav class="navbar">
+      <div class="nav-logo">Олег</div>
+      <ul class="nav-links">
+        <li><a href="#about">Обо мне</a></li>
+        <li><a href="#skills">Навыки</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </nav>
 
-    <!-- ГЛАВНЫЙ БЛОК -->
+    <!-- ГЕРОЙ -->
     <section class="hero">
-      <h1>Привет, я Олег 👋</h1>
-      <p>Верстаю сайты на HTML, CSS и JavaScript</p>
-      <a href="#contact" class="btn">Связаться со мной</a>
+      <div class="hero-content">
+        <div class="badge">Доступен для работы ✦</div>
+        <h1>Веб-разработчик<br /><span>из Пензы</span></h1>
+        <p>
+          Верстаю чистые, быстрые и адаптивные сайты.<br />Всегда на связи.
+          Берусь за срочные задачи.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">Связаться со мной</a>
+          <a href="#skills" class="btn-secondary">Мои навыки</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="card-inner">
+          <div class="card-icon">💻</div>
+          <div class="card-text">
+            <span>Готов к работе</span>
+            <p>HTML · CSS · JS</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ОБО МНЕ -->
     <section class="about" id="about">
-      <h2>Обо мне</h2>
-      <p>
-        Начинающий веб-разработчик из Пензы. Делаю адаптивные сайты, которые
-        корректно отображаются на всех устройствах. Готов браться за срочные
-        задачи — всегда на связи.
-      </p>
+      <div class="section-label">Обо мне</div>
+      <h2>Создаю сайты,<br />которые работают</h2>
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="about-icon">⚡</div>
+          <h3>Быстро</h3>
+          <p>Берусь за срочные задачи и всегда отвечаю оперативно</p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">🎯</div>
+          <h3>Точно</h3>
+          <p>Делаю всё аккуратно, по техническому заданию клиента</p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">📱</div>
+          <h3>Адаптивно</h3>
+          <p>Сайты выглядят отлично на любом устройстве</p>
+        </div>
+      </div>
     </section>
 
     <!-- НАВЫКИ -->
     <section class="skills" id="skills">
-      <h2>Навыки</h2>
-      <div class="skills-grid">
-        <div class="skill">HTML</div>
-        <div class="skill">CSS</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">Адаптивная вёрстка</div>
-        <div class="skill">Git</div>
-        <div class="skill">VS Code</div>
+      <div class="section-label">Навыки</div>
+      <h2>Что я умею</h2>
+      <div class="skills-list">
+        <div class="skill-item">
+          <span class="skill-num">01</span>
+          <span class="skill-name">HTML</span>
+          <span class="skill-bar"><span style="width: 90%"></span></span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-num">02</span>
+          <span class="skill-name">CSS</span>
+          <span class="skill-bar"><span style="width: 85%"></span></span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-num">03</span>
+          <span class="skill-name">JavaScript</span>
+          <span class="skill-bar"><span style="width: 50%"></span></span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-num">04</span>
+          <span class="skill-name">Адаптивная вёрстка</span>
+          <span class="skill-bar"><span style="width: 80%"></span></span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-num">05</span>
+          <span class="skill-name">Git</span>
+          <span class="skill-bar"><span style="width: 40%"></span></span>
+        </div>
       </div>
     </section>
 
     <!-- КОНТАКТЫ -->
     <section class="contact" id="contact">
-      <h2>Контакты</h2>
-      <p>Готов к работе — пишите!</p>
-      <a href="mailto:000URS@gmail.com" class="btn">Написать на почту</a>
+      <div class="contact-box">
+        <div class="section-label">Контакты</div>
+        <h2>Начнём работать вместе?</h2>
+        <p>Напишите мне — отвечу в течение часа</p>
+        <a href="mailto:00URSS@gmail.com" class="btn-primary"
+          >Написать на почту</a
+        >
+      </div>
     </section>
+
+    <!-- ПЛАВАЮЩАЯ КНОПКА -->
+    <a href="#contact" class="fab">✉</a>
+
+    <script src="script.js"></script>
   </body>
 </html>
