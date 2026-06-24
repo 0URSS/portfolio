@@ -1,22 +1,26 @@
-// Плавная прокрутка
+// Плавная прокрутка для всех ссылок
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth",
-    });
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   });
 });
 
-// Навбар — скрывается при прокрутке вниз, появляется при прокрутке вверх
+// Скрытие навбара при прокрутке вниз
 let lastScroll = 0;
 const navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
 
-  if (currentScroll > lastScroll && currentScroll > 100) {
-    navbar.style.transform = "translateX(-50%) translateY(-100px)";
+  if (currentScroll > lastScroll && currentScroll > 120) {
+    navbar.style.transform = "translateX(-50%) translateY(-120px)";
     navbar.style.opacity = "0";
   } else {
     navbar.style.transform = "translateX(-50%) translateY(0)";
@@ -26,7 +30,7 @@ window.addEventListener("scroll", () => {
   lastScroll = currentScroll;
 });
 
-// Анимация появления элементов при прокрутке
+// Анимация появления элементов
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -36,14 +40,21 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.1 },
+  { threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
 );
 
 document
-  .querySelectorAll(".about-card, .skill-item, .contact-box")
+  .querySelectorAll(".about-card, .skill-item, .contact-box, .hero-card")
   .forEach((el) => {
     el.style.opacity = "0";
     el.style.transform = "translateY(30px)";
-    el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    el.style.transition = "all 0.7s cubic-bezier(0.4, 0, 0.2, 1)";
     observer.observe(el);
   });
+
+// Закрытие навбара при клике на ссылку (на мобильных)
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  link.addEventListener("click", () => {
+    // Можно добавить логику закрытия меню, если сделаешь бургер-меню позже
+  });
+});
