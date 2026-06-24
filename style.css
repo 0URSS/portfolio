@@ -49,6 +49,7 @@ body {
 .nav-logo {
   font-size: 18px;
   font-weight: 700;
+  color: var(--black);
 }
 
 .nav-links {
@@ -84,7 +85,7 @@ body {
 }
 
 .hero::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -117,7 +118,6 @@ body {
   font-weight: 500;
   margin-bottom: 28px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  animation: fadeDown 0.6s ease;
 }
 
 .hero h1 {
@@ -127,7 +127,6 @@ body {
   letter-spacing: -1.5px;
   margin-bottom: 24px;
   color: #ffffff;
-  animation: fadeDown 0.7s ease;
 }
 
 .hero h1 span {
@@ -139,31 +138,24 @@ body {
   color: #ddd;
   margin-bottom: 40px;
   line-height: 1.7;
-  animation: fadeDown 0.8s ease;
 }
 
 .hero-buttons {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  animation: fadeDown 0.9s ease;
 }
 
 /* КНОПКИ */
-.btn-primary,
-.btn-secondary {
+.btn-primary {
+  background: var(--accent);
+  color: white;
   padding: 14px 28px;
   border-radius: 50px;
   text-decoration: none;
   font-size: 15px;
   font-weight: 600;
   transition: all 0.2s;
-  display: inline-block;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: white;
   box-shadow: 0 4px 20px rgba(0, 113, 227, 0.3);
 }
 
@@ -176,6 +168,12 @@ body {
 .btn-secondary {
   background: rgba(255, 255, 255, 0.15);
   color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.2s;
   border: 1px solid rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
 }
@@ -197,11 +195,10 @@ body {
   position: relative;
 }
 
-/* Остальные стили (about, skills, contact, fab) оставил почти без изменений */
-/* Я их чуть-чуть подчистил, но можешь оставить как было */
-
+/* СЕКЦИИ */
 .about,
-.skills {
+.skills,
+.contact {
   padding: 100px 8%;
 }
 
@@ -222,8 +219,118 @@ h2 {
   margin-bottom: 48px;
 }
 
-/* ... (остальные стили я не менял, они нормальные) */
+/* ОБО МНЕ */
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
 
+.about-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+}
+
+.about-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.about-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.about-card p {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* НАВЫКИ */
+.skills {
+  background: var(--white);
+  border-radius: 40px;
+  margin: 0 4%;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.skill-num {
+  font-size: 13px;
+  color: var(--gray);
+  font-weight: 500;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.skill-name {
+  font-size: 16px;
+  font-weight: 600;
+  width: 180px;
+  flex-shrink: 0;
+}
+
+.skill-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--bg);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 10px;
+  animation: growBar 1.2s ease forwards;
+}
+
+/* КОНТАКТЫ */
+.contact-box {
+  background: var(--black);
+  border-radius: 40px;
+  padding: 80px 60px;
+  text-align: center;
+  color: white;
+}
+
+.contact-box .section-label {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-box h2 {
+  color: white;
+  margin-bottom: 16px;
+}
+
+.contact-box p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 17px;
+  margin-bottom: 36px;
+}
+
+/* ПЛАВАЮЩАЯ КНОПКА */
 .fab {
   position: fixed;
   bottom: 32px;
@@ -245,17 +352,13 @@ h2 {
 
 .fab:hover {
   transform: scale(1.1) translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 113, 227, 0.5);
 }
 
 /* АНИМАЦИИ */
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-16px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
 }
 
 @keyframes fadeDown {
@@ -270,9 +373,7 @@ h2 {
 }
 
 @keyframes growBar {
-  from {
-    width: 0;
-  }
+  from { width: 0; }
 }
 
 /* АДАПТИВ */
@@ -299,5 +400,9 @@ h2 {
 
   .contact-box {
     padding: 60px 24px;
+  }
+
+  .skills {
+    margin: 0 2%;
   }
 }
